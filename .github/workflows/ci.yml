@@ -1,19 +1,19 @@
-name: Hehe
+name: AWS CI/CD
 
 on:
   push:
     branches:
       - main
 
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Github virtually provides a temporary machine on Ubuntu
 
     steps:
 
@@ -33,7 +33,11 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t hehe .
+        docker build -t aws .
+
+    # - name: Testing
+    #   run: |
+    #     pytest
 
     - name: Success
       run: |

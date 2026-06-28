@@ -5,7 +5,7 @@ app = FastAPI()
 @app.get("/")
 def home():
     return{
-        "message" : "Welcome to AWS Session Week 2 Day 4"
+        "message" : "Welcome to AWS Session Week 2 Day 5"
     }
 
 @app.get("/about")

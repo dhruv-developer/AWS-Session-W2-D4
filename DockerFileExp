@@ -1,0 +1,13 @@
+FROM python:3.11-slim // A prebuilt python 3.11 version image
+
+WORKDIR /app // Directory in the container
+
+COPY requirements.txt . // Copying the requirements file in case of python, in case of javascript we can copy the package.json since it contains the requirements. COPY requirements.txt . signifies that first we have to write the name from the source and then the output
+
+RUN pip install --no-cache-dir -r requirements.txt // Command for installing python deps
+
+COPY . . // Copy everything else to the container
+
+EXPOSE 8000 // Exposing the port means that server is expected to run on this port
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
